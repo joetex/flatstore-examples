@@ -18,8 +18,6 @@ npm install
 
 `npm start`
 
-Not yet released on npm, until the base functionality is working properly.
-
 # Getting Started
 
 flatstore is a global object, used with the concept of Services to call async or regular functions and add or update data, and Data Watching, to subscribe to specific data changes.
