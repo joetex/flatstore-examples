@@ -22,6 +22,8 @@ npm install
 
 flatstore is a global object, used with the concept of Services to call async or regular functions and add or update data, and Data Watching, to subscribe to specific data changes.
 
+https://github.com/joetex/flatstore
+
 ## Simple
 
 [View example source](https://github.com/joetex/flatstore-examples/tree/master/Simple)
