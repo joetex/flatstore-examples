@@ -1,4 +1,4 @@
-# flatstore
+# flatstore examples
 
 Redux alternative, Flat storage with tighter data to component mapping. Formally known as flatiron.
 
