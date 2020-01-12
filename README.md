@@ -4,7 +4,19 @@ Redux alternative, Flat storage with tighter data to component mapping. Formally
 
 # Installation
 
-`npm install flatstore`
+```javascript
+cd Advanced
+npm install
+
+//or
+
+cd Simple
+npm install
+```
+
+## Run
+
+`npm start`
 
 Not yet released on npm, until the base functionality is working properly.
 
