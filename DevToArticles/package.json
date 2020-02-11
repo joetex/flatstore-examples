@@ -1,10 +1,10 @@
 {
-    "name": "flatstore-simple-example",
+    "name": "flatstore-devarticles-example",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
         "@types/node": "^12.7.8",
-        "axios": "^0.19.0",
+        "axios": "^0.19.2",
         "flatstore": "^1.0.1",
         "react": "^16.10.1",
         "react-dom": "^16.10.1",
