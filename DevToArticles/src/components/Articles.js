@@ -28,7 +28,7 @@ class Articles extends React.Component {
 }
 
 let onCustomWatched = (ownProps) => {
-    return ['articles', "page"];
+    return ['articles'];
 }
 let onCustomProps = (key, value, store, ownProps) => {
     return { ...value }
