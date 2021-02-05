@@ -2,7 +2,7 @@ import React from 'react';
 import flatstore from 'flatstore';
 import apiDevArticles from './DevAPI';
 
-class PageWidgetComponent extends React.Component {
+class PageWidget extends React.Component {
     render() {
         return (
             <div>
@@ -12,4 +12,4 @@ class PageWidgetComponent extends React.Component {
         )
     }
 }
-export default flatstore.connect(["page"])(PageWidgetComponent);
+export default flatstore.connect(["page"])(PageWidget);

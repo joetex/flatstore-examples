@@ -4,9 +4,6 @@ import Article from './Article';
 import apiDevArticles from './DevAPI';
 import PageWidget from './PageWidget';
 
-flatstore.set("articles", []);
-flatstore.set("page", 1);
-
 class Articles extends React.Component {
 
     constructor(props) {
@@ -27,10 +24,4 @@ class Articles extends React.Component {
     }
 }
 
-let onCustomWatched = (ownProps) => {
-    return ['articles'];
-}
-let onCustomProps = (key, value, store, ownProps) => {
-    return { ...value }
-}
-export default flatstore.connect([], onCustomWatched, onCustomProps)(Articles);
+export default flatstore.connect(['articles'])(Articles);
