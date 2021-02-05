@@ -1,3 +1,13 @@
-# Advanced Example
+# dev.to API for Articles
 
-Todo App with Undo/Redo functionality similar to Redux example.
+Example application to show dev.to articles with a random page button using flatstore.
+
+## Installation
+```
+npm install
+```
+
+## Run
+```
+npm start
+```
