@@ -1,8 +1,5 @@
-
-
 import flatstore from 'flatstore';
 import axios from 'axios';
-
 
 function ReduceResults(response) {
     let results = [];
@@ -39,14 +36,7 @@ export async function SearchDuckDuckGo(query) {
         let results = ReduceResults(response);
         flatstore.set("ddgResults", results);
         flatstore.set("ddgResultCount", results.length);
-
         flatstore.set("ddgError", false);
-        //OR
-        //         let obj = {"ddg":response.data,
-        //         "ddgQuery": query,
-        //         "ddgResults": results,
-        //         "ddgResultCount": results.length}
-        // flatstore.setWithObj(obj)
     }
     catch (error) {
         console.log(error);

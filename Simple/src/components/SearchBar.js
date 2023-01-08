@@ -1,51 +1,45 @@
-import React from 'react';
 import flatstore from 'flatstore';
-
+import { useEffect, useRef } from 'react';
 import { SearchDuckDuckGo } from '../services/DuckDuckGo';
 
-class SearchBar extends React.Component {
+flatstore.set('query', 'test');
 
-    constructor(props) {
-        super(props);
-        this.query = "test";
-        this.onChange = this.onChange.bind(this);
-        this.onKeyUp = this.onKeyUp.bind(this);
+function SearchBar(props) {
+
+    let [query] = flatstore.useWatch('query');
+    let inputRef = useRef();
+
+    const onKeyUp = (event) => {
+        if (event.keyCode === 13)
+            SearchDuckDuckGo(query);
     }
 
-    componentDidMount() {
-        this.input.focus();
-        this.input.value = this.query;
+    const onChange = (event) => {
+        flatstore.set('query', event.target.value);
     }
 
-    onKeyUp(event) {
-        if (event.keyCode === 13) {
-            SearchDuckDuckGo(this.query);
-        }
-    }
+    useEffect(() => {
+        inputRef.current.focus();
+        inputRef.current.value = query;
+    }, [])
 
-    onChange(event) {
-        this.query = event.target.value;
-    }
-
-    render() {
-        return (
-            <div>
-                <label htmlFor="ddgQuery">Search</label>
-                <input
-                    id="ddgQuery"
-                    type="text"
-                    name="ddgQuery"
-                    onChange={this.onChange}
-                    onKeyUp={this.onKeyUp}
-                    ref={(input) => { this.input = input; }} />
-                <button
-                    name="searchSubmit"
-                    onClick={() => { SearchDuckDuckGo(this.query) }}>
-                    Submit
-                </button>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <label htmlFor="ddgQuery">Search</label>
+            <input
+                id="ddgQuery"
+                type="text"
+                name="ddgQuery"
+                onChange={onChange}
+                onKeyUp={onKeyUp}
+                ref={inputRef} />
+            <button
+                name="searchSubmit"
+                onClick={() => { SearchDuckDuckGo(query) }}>
+                Submit
+            </button>
+        </div>
+    );
 }
 
 export default SearchBar;
