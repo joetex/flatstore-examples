@@ -2,11 +2,11 @@ import flatstore from 'flatstore';
 import { useEffect, useRef } from 'react';
 import { SearchDuckDuckGo } from '../services/DuckDuckGo';
 
-flatstore.set('query', 'test');
+// flatstore.set('query', 'test');
 
 function SearchBar(props) {
 
-    let [query] = flatstore.useWatch('query');
+    let [query] = flatstore.useWatch('query', 'test');
     let inputRef = useRef();
 
     const onKeyUp = (event) => {
