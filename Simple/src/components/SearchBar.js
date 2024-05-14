@@ -1,12 +1,12 @@
 import flatstore from 'flatstore';
-import { useEffect, useRef } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 import { SearchDuckDuckGo } from '../services/DuckDuckGo';
 
-// flatstore.set('query', 'test');
+flatstore.set('query', 'test');
 
 function SearchBar(props) {
 
-    let [query] = flatstore.useWatch('query', 'test');
+    let [query] = flatstore.useChange('query', 'test');
     let inputRef = useRef();
 
     const onKeyUp = (event) => {
@@ -25,7 +25,7 @@ function SearchBar(props) {
 
     return (
         <div>
-            <label htmlFor="ddgQuery">Search</label>
+            <label htmlFor="ddgQuery" onClick={() => { flatstore.set('query', inputRef.current.value) }}>Search</label>
             <input
                 id="ddgQuery"
                 type="text"
@@ -38,8 +38,26 @@ function SearchBar(props) {
                 onClick={() => { SearchDuckDuckGo(query) }}>
                 Submit
             </button>
+            <TestReducer />
         </div>
     );
+}
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+    return { count: flatstore.get('query') }
+}
+
+function TestReducer(props) {
+
+    let [query] = flatstore.useWatch('query');
+
+    console.log("rerendering TestReducer!");
+
+    return <span onClick={() => {
+        flatstore.set('query', query);
+    }}>TestReducer: {query}</span>
 }
 
 export default SearchBar;
